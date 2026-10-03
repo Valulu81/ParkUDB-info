@@ -6,6 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Funcionalidades y Demo - PARKUDB</title>
 
+    <link rel="icon" type="image/png" href="assets/logo.png" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
@@ -35,13 +36,14 @@
         <div class="h-20 max-w-[1440px] mx-auto px-4 lg:px-8 flex items-center justify-between">
             <div class="flex items-center gap-4 shrink-0">
                 <div
-                    class="w-11 h-11 rounded-xl bg-accent flex items-center justify-center text-primary-dark shadow-sm shrink-0">
-                    <span class="material-symbols-outlined text-[26px]">directions_car</span>
+                    class="w-11 h-11 rounded-xl bg-white shadow-sm shrink-0 overflow-hidden flex items-center justify-center p-0.5">
+                    <img src="assets/logo.png" alt="Logo PARKUDB" class="w-full h-full object-contain" />
                 </div>
                 <div class="flex flex-col">
                     <span class="font-extrabold text-xl tracking-tight text-white flex items-center gap-1.5">PARKUDB
                         <span
                             class="text-[11px] font-semibold uppercase tracking-wider bg-white/15 px-2 py-0.5 rounded-full text-white/90">v1.2</span></span>
+                    <span class="text-xs text-white/80 font-medium">Sistema de Parqueo • Universidad Don Bosco</span>
                 </div>
             </div>
 
@@ -58,6 +60,12 @@
             </nav>
 
             <div class="flex items-center gap-2 shrink-0">
+                <div class="hidden md:flex flex-col items-end text-right">
+                    <span
+                        class="inline-flex items-center px-2 py-0.5 rounded bg-accent/20 border border-accent/40 text-accent font-bold text-xs">Ciclo
+                        01-2025</span>
+                    <span class="text-[11px] text-white/80 font-medium">Cátedra Integradora</span>
+                </div>
                 <div
                     class="w-9 h-9 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center text-white">
                     <span class="material-symbols-outlined text-[20px]">person</span>
@@ -101,8 +109,108 @@
             </div>
         </section>
 
+        <!-- 05. Arquitectura Técnica -->
+        <section class="w-full py-16 bg-[#ecf2fa]" id="arquitectura">
+            <div class="max-w-[1440px] mx-auto px-4 lg:px-8 flex flex-col gap-8">
+                <div class="flex flex-col gap-1">
+                    <span class="text-xs text-primary font-extrabold uppercase tracking-wider">05. Arquitectura
+                        Técnica</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-primary-dark">Cómo Está Construido PARKUDB</h2>
+                    <p class="text-sm sm:text-base text-on-surface-muted max-w-3xl leading-relaxed">
+                        Un pipeline de cuatro capas: los datos entran por los sensores, se procesan con IA, se sirven
+                        por API, y llegan al usuario por la app.
+                    </p>
+                </div>
+
+                <!-- Flujo de arquitectura -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm">
+                    <div class="flex flex-col lg:flex-row items-stretch gap-2 lg:gap-0">
+                        <div class="flex-1 flex flex-col items-center text-center gap-2 p-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[26px]">database</span>
+                            </div>
+                            <span class="text-xs font-extrabold text-primary-dark">Firebase Firestore</span>
+                            <span class="text-[11px] text-on-surface-muted">Estado en vivo + historial de
+                                ocupación</span>
+                        </div>
+                        <div class="hidden lg:flex items-center text-slate-300">
+                            <span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center text-center gap-2 p-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-accent-light border border-accent/40 text-accent-dark flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[26px]">psychology</span>
+                            </div>
+                            <span class="text-xs font-extrabold text-primary-dark">train.py (scikit-learn)</span>
+                            <span class="text-[11px] text-on-surface-muted">Entrena un RandomForestRegressor con el
+                                historial</span>
+                        </div>
+                        <div class="hidden lg:flex items-center text-slate-300">
+                            <span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center text-center gap-2 p-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[26px]">dns</span>
+                            </div>
+                            <span class="text-xs font-extrabold text-primary-dark">main.py (FastAPI)</span>
+                            <span class="text-[11px] text-on-surface-muted">Expone el modelo como API: /predict,
+                                /heatmap</span>
+                        </div>
+                        <div class="hidden lg:flex items-center text-slate-300">
+                            <span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+                        </div>
+                        <div class="flex-1 flex flex-col items-center text-center gap-2 p-4">
+                            <div
+                                class="w-12 h-12 rounded-xl bg-status-free-bg border border-status-free-border/70 text-status-free flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[26px]">smartphone</span>
+                            </div>
+                            <span class="text-xs font-extrabold text-primary-dark">App (Expo / React Native)</span>
+                            <span class="text-[11px] text-on-surface-muted">Mapa en vivo y predicciones para el
+                                usuario</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stack tecnológico -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+                    <div
+                        class="bg-white p-3 rounded-xl border border-slate-200/90 shadow-sm flex flex-col items-center text-center gap-1">
+                        <span class="material-symbols-outlined text-primary text-[22px]">local_fire_department</span>
+                        <span class="text-[11px] font-bold text-primary-dark">Firestore</span>
+                    </div>
+                    <div
+                        class="bg-white p-3 rounded-xl border border-slate-200/90 shadow-sm flex flex-col items-center text-center gap-1">
+                        <span class="material-symbols-outlined text-primary text-[22px]">bolt</span>
+                        <span class="text-[11px] font-bold text-primary-dark">FastAPI</span>
+                    </div>
+                    <div
+                        class="bg-white p-3 rounded-xl border border-slate-200/90 shadow-sm flex flex-col items-center text-center gap-1">
+                        <span class="material-symbols-outlined text-primary text-[22px]">forest</span>
+                        <span class="text-[11px] font-bold text-primary-dark">scikit-learn</span>
+                    </div>
+                    <div
+                        class="bg-white p-3 rounded-xl border border-slate-200/90 shadow-sm flex flex-col items-center text-center gap-1">
+                        <span class="material-symbols-outlined text-primary text-[22px]">table_chart</span>
+                        <span class="text-[11px] font-bold text-primary-dark">pandas</span>
+                    </div>
+                    <div
+                        class="bg-white p-3 rounded-xl border border-slate-200/90 shadow-sm flex flex-col items-center text-center gap-1">
+                        <span class="material-symbols-outlined text-primary text-[22px]">smartphone</span>
+                        <span class="text-[11px] font-bold text-primary-dark">Expo / RN</span>
+                    </div>
+                    <div
+                        class="bg-white p-3 rounded-xl border border-slate-200/90 shadow-sm flex flex-col items-center text-center gap-1">
+                        <span class="material-symbols-outlined text-primary text-[22px]">deployed_code</span>
+                        <span class="text-[11px] font-bold text-primary-dark">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Banco de Pruebas / Demo -->
-        <section class="w-full py-16 bg-[#ecf2fa]">
+        <section class="w-full py-16 bg-white">
             <div class="max-w-[1440px] mx-auto px-4 lg:px-8 flex flex-col gap-8">
                 <div class="flex flex-col gap-1">
                     <h2 class="text-2xl sm:text-3xl font-extrabold text-primary-dark">Simulación Interactiva y Demo</h2>

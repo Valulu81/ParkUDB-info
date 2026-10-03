@@ -6,6 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Inicio - PARKUDB</title>
 
+    <link rel="icon" type="image/png" href="assets/logo.png" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
@@ -35,8 +36,8 @@
         <div class="h-20 max-w-[1440px] mx-auto px-4 lg:px-8 flex items-center justify-between">
             <div class="flex items-center gap-4 shrink-0">
                 <div
-                    class="w-11 h-11 rounded-xl bg-accent flex items-center justify-center text-primary-dark shadow-sm shrink-0">
-                    <span class="material-symbols-outlined text-[26px]">directions_car</span>
+                    class="w-11 h-11 rounded-xl bg-white shadow-sm shrink-0 overflow-hidden flex items-center justify-center p-0.5">
+                    <img src="assets/logo.png" alt="Logo PARKUDB" class="w-full h-full object-contain" />
                 </div>
                 <div class="flex flex-col">
                     <span class="font-extrabold text-xl tracking-tight text-white flex items-center gap-1.5">PARKUDB
@@ -75,25 +76,6 @@
 
     <main class="w-full pt-20 bg-surface min-h-screen">
         <div class="flex flex-col w-full">
-            <!-- Top Academic Notice Banner -->
-            <aside class="w-full bg-primary-dark py-2 text-center text-white/90 border-b border-primary/20">
-                <div
-                    class="max-w-[1440px] mx-auto px-4 lg:px-8 flex flex-wrap items-center justify-between gap-1 text-xs">
-                    <div class="flex items-center gap-2">
-                        <span class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
-                        <span class="font-bold tracking-wide text-white">PORTAL DE SUSTENTACIÓN ACADÉMICA</span>
-                        <span class="hidden sm:inline text-white/40">•</span>
-                        <span class="hidden sm:inline text-white/80">Universidad Don Bosco El Salvador</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span
-                            class="bg-primary/80 border border-white/10 px-2 py-0.5 rounded text-white font-medium">Ciclo
-                            Académico 01-2025</span>
-                        <span class="text-accent font-bold">Cátedra Integradora</span>
-                    </div>
-                </div>
-            </aside>
-
             <!-- Hero Section -->
             <section
                 class="w-full relative overflow-hidden pt-8 pb-12 bg-gradient-to-b from-[#eaf1fc] via-surface to-surface">
@@ -136,49 +118,74 @@
                                 class="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200/90 shadow-xl flex flex-col gap-4">
                                 <div class="flex items-center justify-between pb-3 border-b border-slate-100">
                                     <div class="flex items-center gap-2.5">
-                                        <div class="w-3 h-3 rounded-full bg-status-free animate-ping"></div>
+                                        <div
+                                            class="w-9 h-9 rounded-xl bg-accent-light border border-accent/40 text-accent-dark flex items-center justify-center shrink-0">
+                                            <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+                                        </div>
                                         <div>
                                             <span
-                                                class="font-bold text-base text-primary-dark block leading-none">Telemetría
-                                                Campus UDB</span>
-                                            <span class="text-[11px] text-on-surface-muted">En vivo • Actualizado hace
-                                                12 seg</span>
+                                                class="font-bold text-base text-primary-dark block leading-none">Prueba
+                                                la Predicción IA</span>
+                                            <span class="text-[11px] text-on-surface-muted">Elige zona y hora, al
+                                                instante</span>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Ocupación bar -->
+
+                                <!-- Selectores -->
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="flex flex-col gap-1">
+                                        <label
+                                            class="text-[10px] uppercase font-bold text-on-surface-muted tracking-wider">Zona</label>
+                                        <select id="heroZonaSelect"
+                                            class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-sm font-bold text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary/30">
+                                            <option value="A">Zona A</option>
+                                            <option value="B" selected>Zona B</option>
+                                            <option value="C">Zona C</option>
+                                            <option value="D">Zona D</option>
+                                            <option value="E">Zona E</option>
+                                        </select>
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <label
+                                            class="text-[10px] uppercase font-bold text-on-surface-muted tracking-wider">Hora</label>
+                                        <select id="heroHoraSelect"
+                                            class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 text-sm font-bold text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary/30">
+                                            <option value="0">6:00 AM</option>
+                                            <option value="1" selected>8:00 AM</option>
+                                            <option value="2">10:00 AM</option>
+                                            <option value="3">12:00 PM</option>
+                                            <option value="4">2:00 PM</option>
+                                            <option value="5">4:00 PM</option>
+                                            <option value="6">6:00 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <button id="heroConsultarBtn"
+                                    class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary-hover text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-sm transition-all">
+                                    <span class="material-symbols-outlined text-[16px]">bolt</span>
+                                    <span>Consultar Probabilidad</span>
+                                </button>
+
+                                <!-- Resultado -->
                                 <div class="flex flex-col gap-1.5 p-3 rounded-xl bg-slate-50 border border-slate-100">
                                     <div class="flex justify-between items-center text-xs font-bold">
                                         <span
-                                            class="text-on-surface-muted uppercase tracking-wider text-[11px]">Ocupación
-                                            del Campus</span>
-                                        <span class="text-primary-dark font-extrabold text-sm">39%</span>
+                                            class="text-on-surface-muted uppercase tracking-wider text-[11px]">Probabilidad
+                                            de espacio libre</span>
+                                        <span id="heroResultPct" class="text-primary-dark font-extrabold text-sm">—</span>
                                     </div>
                                     <div class="w-full h-3 rounded-full bg-slate-200 overflow-hidden">
-                                        <div class="h-full bg-accent rounded-full" style="width: 39%;"></div>
+                                        <div id="heroResultBar" class="h-full bg-accent rounded-full transition-all"
+                                            style="width: 0%;"></div>
                                     </div>
                                 </div>
-                                <!-- Indicadores -->
-                                <div class="grid grid-cols-3 gap-2">
-                                    <div
-                                        class="bg-status-free-bg border border-status-free-border/70 p-2.5 rounded-xl text-center flex flex-col items-center">
-                                        <span
-                                            class="text-[10px] uppercase font-bold text-status-free tracking-wider">Libres</span>
-                                        <span class="text-xl font-extrabold text-status-free">33</span>
-                                    </div>
-                                    <div
-                                        class="bg-status-busy-bg border border-status-busy-border/70 p-2.5 rounded-xl text-center flex flex-col items-center">
-                                        <span
-                                            class="text-[10px] uppercase font-bold text-status-busy tracking-wider">Ocupados</span>
-                                        <span class="text-xl font-extrabold text-status-busy">24</span>
-                                    </div>
-                                    <div
-                                        class="bg-slate-50 border border-slate-200 p-2.5 rounded-xl text-center flex flex-col items-center">
-                                        <span
-                                            class="text-[10px] uppercase font-bold text-on-surface-muted tracking-wider">Total</span>
-                                        <span class="text-xl font-extrabold text-primary-dark">57</span>
-                                    </div>
-                                </div>
+
+                                <p id="heroResultText" class="text-xs text-on-surface-muted leading-relaxed">
+                                    Selecciona una zona y una hora, luego presiona "Consultar" — el resultado se
+                                    calcula con el mismo patrón de horas pico que usa el modelo real.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -233,11 +240,82 @@
                 </div>
             </section>
 
-            <!-- Section 02: Propuesta de Valor -->
+            <!-- Section 02 (numeración original): Solución Propuesta -->
+            <section class="w-full py-16 bg-surface">
+                <div class="max-w-[1440px] mx-auto px-4 lg:px-8 flex flex-col gap-8">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs text-primary font-extrabold uppercase tracking-wider">02. Solución
+                            Propuesta</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-primary-dark">Cómo Resolvemos el
+                            Problema</h2>
+                        <p class="text-sm sm:text-base text-on-surface-muted max-w-3xl leading-relaxed">
+                            PARKUDB combina sensores IoT, una base de datos en tiempo real y un modelo de
+                            Inteligencia Artificial para dar visibilidad total del parqueo del campus, antes y
+                            durante el ingreso.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+                        <div
+                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            <span
+                                class="absolute -top-3 -left-3 w-7 h-7 rounded-full bg-primary text-white text-xs font-extrabold flex items-center justify-center shadow-sm">1</span>
+                            <div
+                                class="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[24px]">sensors</span>
+                            </div>
+                            <h3 class="text-sm font-bold text-primary-dark">Sensores IoT por Espacio</h3>
+                            <p class="text-xs text-on-surface-muted">Sensores ultrasónicos detectan si cada plaza
+                                está libre u ocupada, en tiempo real.</p>
+                        </div>
+
+                        <div
+                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            <span
+                                class="absolute -top-3 -left-3 w-7 h-7 rounded-full bg-primary text-white text-xs font-extrabold flex items-center justify-center shadow-sm">2</span>
+                            <div
+                                class="w-11 h-11 rounded-xl bg-primary/10 border border-primary/20 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[24px]">cloud_sync</span>
+                            </div>
+                            <h3 class="text-sm font-bold text-primary-dark">Base de Datos en la Nube</h3>
+                            <p class="text-xs text-on-surface-muted">Firebase Firestore guarda el estado actual y el
+                                historial de ocupación, sin servidor propio que mantener.</p>
+                        </div>
+
+                        <div
+                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            <span
+                                class="absolute -top-3 -left-3 w-7 h-7 rounded-full bg-primary text-white text-xs font-extrabold flex items-center justify-center shadow-sm">3</span>
+                            <div
+                                class="w-11 h-11 rounded-xl bg-accent-light border border-accent/40 text-accent-dark flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[24px]">psychology</span>
+                            </div>
+                            <h3 class="text-sm font-bold text-primary-dark">Modelo Predictivo (IA)</h3>
+                            <p class="text-xs text-on-surface-muted">Un Random Forest aprende del historial y predice
+                                la probabilidad de espacio libre por zona, día y hora.</p>
+                        </div>
+
+                        <div
+                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            <span
+                                class="absolute -top-3 -left-3 w-7 h-7 rounded-full bg-primary text-white text-xs font-extrabold flex items-center justify-center shadow-sm">4</span>
+                            <div
+                                class="w-11 h-11 rounded-xl bg-status-free-bg border border-status-free-border/70 text-status-free flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[24px]">smartphone</span>
+                            </div>
+                            <h3 class="text-sm font-bold text-primary-dark">App Móvil y Web</h3>
+                            <p class="text-xs text-on-surface-muted">El conductor ve el mapa en vivo y el mejor
+                                horario para encontrar espacio, antes de salir hacia el campus.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 03 (numeración original 02): Propuesta de Valor -->
             <section class="w-full py-16 bg-[#ecf2fa]">
                 <div class="max-w-[1440px] mx-auto px-4 lg:px-8 flex flex-col gap-8">
                     <div class="flex flex-col gap-1">
-                        <span class="text-xs text-primary font-extrabold uppercase tracking-wider">02. Impacto y
+                        <span class="text-xs text-primary font-extrabold uppercase tracking-wider">03. Impacto y
                             Propuesta de Valor</span>
                         <h2 class="text-2xl sm:text-3xl font-extrabold text-primary-dark">¿Por Qué Modernizar el
                             Estacionamiento?</h2>
@@ -292,6 +370,54 @@
             </div>
         </div>
     </footer>
+
+    <!-- Mini simulador de predicción (hero) -->
+    <script>
+        (function () {
+            // Patrón base por hora (6am, 8am, 10am, 12pm, 2pm, 4pm, 6pm) -- % de espacio libre.
+            // Refleja el mismo patrón que el modelo real: baja en horas pico (8am y 12-2pm), sube al final del día.
+            const patronBase = [83, 55, 73, 68, 70, 85, 90];
+            const horaLabels = ['6:00 AM', '8:00 AM', '10:00 AM', '12:00 PM', '2:00 PM', '4:00 PM', '6:00 PM'];
+            const zonas = ['A', 'B', 'C', 'D', 'E'];
+
+            function calcularProbabilidad(zona, horaIdx) {
+                const offsetZona = zonas.indexOf(zona) * 3; // ligera variación por zona
+                const valor = patronBase[horaIdx] + offsetZona - 6;
+                return Math.max(5, Math.min(97, Math.round(valor)));
+            }
+
+            function colorPara(pct) {
+                if (pct >= 70) return { bar: '#10b981', texto: 'alta disponibilidad' };
+                if (pct >= 40) return { bar: '#f59e0b', texto: 'disponibilidad media' };
+                return { bar: '#ef4444', texto: 'baja disponibilidad' };
+            }
+
+            const zonaSelect = document.getElementById('heroZonaSelect');
+            const horaSelect = document.getElementById('heroHoraSelect');
+            const btn = document.getElementById('heroConsultarBtn');
+            const pctLabel = document.getElementById('heroResultPct');
+            const bar = document.getElementById('heroResultBar');
+            const textoResultado = document.getElementById('heroResultText');
+
+            if (!btn) return;
+
+            function consultar() {
+                const zona = zonaSelect.value;
+                const horaIdx = parseInt(horaSelect.value, 10);
+                const pct = calcularProbabilidad(zona, horaIdx);
+                const estilo = colorPara(pct);
+
+                pctLabel.textContent = pct + '%';
+                bar.style.width = pct + '%';
+                bar.style.backgroundColor = estilo.bar;
+                textoResultado.textContent =
+                    `Zona ${zona} a las ${horaLabels[horaIdx]}: ${estilo.texto} (${pct}% de probabilidad de encontrar espacio libre).`;
+            }
+
+            btn.addEventListener('click', consultar);
+            consultar(); // resultado inicial al cargar
+        })();
+    </script>
 </body>
 
 </html>
