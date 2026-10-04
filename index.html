@@ -5,6 +5,17 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Inicio - PARKUDB</title>
+    <meta name="description" content="Plataforma IoT + IA para gestión y monitoreo del estacionamiento en la Universidad Don Bosco: sensores en tiempo real, predicción de disponibilidad y mapa en vivo." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PARKUDB — Sistema Inteligente de Parqueo UDB" />
+    <meta property="og:description" content="Plataforma IoT + IA para gestión y monitoreo del estacionamiento en la Universidad Don Bosco: sensores en tiempo real, predicción de disponibilidad y mapa en vivo." />
+    <meta property="og:image" content="https://parkudb.netlify.app/assets/logo.png" />
+    <meta property="og:url" content="https://parkudb.netlify.app/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="PARKUDB — Sistema Inteligente de Parqueo UDB" />
+    <meta name="twitter:description" content="Plataforma IoT + IA para gestión y monitoreo del estacionamiento en la Universidad Don Bosco: sensores en tiempo real, predicción de disponibilidad y mapa en vivo." />
+    <meta name="twitter:image" content="https://parkudb.netlify.app/assets/logo.png" />
 
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -24,6 +35,40 @@
 
         ::-webkit-scrollbar {
             display: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        [id] {
+            scroll-margin-top: 90px;
+        }
+
+        /* Animación de aparición al hacer scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Botón flotante "volver arriba" */
+        #backToTopBtn {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(12px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        #backToTopBtn.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
         }
     </style>
 
@@ -54,21 +99,13 @@
                     href="funcionalidades.html">Funcionalidades & Demo</a>
                 <a class="px-3.5 py-1.5 text-xs font-semibold text-white/85 hover:text-white hover:bg-white/10 transition-colors rounded-lg"
                     href="equipo.html">Equipo</a>
-                <a class="px-3.5 py-1.5 text-xs font-semibold text-white/85 hover:text-white hover:bg-white/10 transition-colors rounded-lg"
-                    href="documentacion.html">Documentación</a>
             </nav>
 
             <div class="flex items-center gap-2 shrink-0">
                 <div class="hidden md:flex flex-col items-end text-right">
                     <span
                         class="inline-flex items-center px-2 py-0.5 rounded bg-accent/20 border border-accent/40 text-accent font-bold text-xs">Ciclo
-                        01-2025</span>
-                    <span class="text-[11px] text-white/80 font-medium">Cátedra Integradora</span>
-                </div>
-                <div
-                    class="w-9 h-9 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center text-white">
-                    <span class="material-symbols-outlined text-[20px]">person</span>
-                </div>
+                        02-2026</span>
                 <button id="mobileMenuBtn" type="button" aria-label="Abrir menú" aria-expanded="false"
                     class="xl:hidden w-9 h-9 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center text-white">
                     <span class="material-symbols-outlined text-[22px]" id="mobileMenuIcon">menu</span>
@@ -85,8 +122,6 @@
                     href="funcionalidades.html">Funcionalidades & Demo</a>
                 <a class="px-4 py-3 text-sm font-semibold text-white/85 hover:text-white hover:bg-white/10 transition-colors rounded-lg"
                     href="equipo.html">Equipo</a>
-                <a class="px-4 py-3 text-sm font-semibold text-white/85 hover:text-white hover:bg-white/10 transition-colors rounded-lg"
-                    href="documentacion.html">Documentación</a>
             </nav>
         </div>
     </header>
@@ -225,7 +260,7 @@
             </section>
 
             <!-- Section 01: Problema Identificado -->
-            <section class="w-full py-16 bg-surface" id="problema-solucion">
+            <section class="w-full py-16 bg-surface reveal" id="problema-solucion">
                 <div class="max-w-[1440px] mx-auto px-4 lg:px-8 flex flex-col gap-8">
                     <div class="flex flex-col gap-1">
                         <span class="text-xs text-primary font-extrabold uppercase tracking-wider">01. Diagnóstico y
@@ -239,7 +274,7 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div
-                            class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                             <div
                                 class="w-11 h-11 rounded-xl bg-status-busy-bg border border-status-busy-border/60 text-status-busy flex items-center justify-center">
                                 <span class="material-symbols-outlined text-[24px]">traffic</span>
@@ -249,7 +284,7 @@
                                 buscando espacio libre.</p>
                         </div>
                         <div
-                            class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                             <div
                                 class="w-11 h-11 rounded-xl bg-accent-light border border-accent/40 text-accent-dark flex items-center justify-center">
                                 <span class="material-symbols-outlined text-[24px]">visibility_off</span>
@@ -259,7 +294,7 @@
                                 saturado antes de ingresar al campus.</p>
                         </div>
                         <div
-                            class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            class="bg-white p-6 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                             <div
                                 class="w-11 h-11 rounded-xl bg-status-busy-bg border border-status-busy-border/60 text-status-busy flex items-center justify-center">
                                 <span class="material-symbols-outlined text-[24px]">receipt_long</span>
@@ -273,7 +308,7 @@
             </section>
 
             <!-- Section 02 (numeración original): Solución Propuesta -->
-            <section class="w-full py-16 bg-surface">
+            <section class="w-full py-16 bg-surface reveal">
                 <div class="max-w-[1440px] mx-auto px-4 lg:px-8 flex flex-col gap-8">
                     <div class="flex flex-col gap-1">
                         <span class="text-xs text-primary font-extrabold uppercase tracking-wider">02. Solución
@@ -289,7 +324,7 @@
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
                         <div
-                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                             <span
                                 class="absolute -top-3 -left-3 w-7 h-7 rounded-full bg-primary text-white text-xs font-extrabold flex items-center justify-center shadow-sm">1</span>
                             <div
@@ -302,7 +337,7 @@
                         </div>
 
                         <div
-                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                             <span
                                 class="absolute -top-3 -left-3 w-7 h-7 rounded-full bg-primary text-white text-xs font-extrabold flex items-center justify-center shadow-sm">2</span>
                             <div
@@ -315,7 +350,7 @@
                         </div>
 
                         <div
-                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                             <span
                                 class="absolute -top-3 -left-3 w-7 h-7 rounded-full bg-primary text-white text-xs font-extrabold flex items-center justify-center shadow-sm">3</span>
                             <div
@@ -328,7 +363,7 @@
                         </div>
 
                         <div
-                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative">
+                            class="bg-white p-5 rounded-2xl border border-slate-200/90 shadow-sm flex flex-col gap-3 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
                             <span
                                 class="absolute -top-3 -left-3 w-7 h-7 rounded-full bg-primary text-white text-xs font-extrabold flex items-center justify-center shadow-sm">4</span>
                             <div
@@ -344,7 +379,7 @@
             </section>
 
             <!-- Section 03 (numeración original 02): Propuesta de Valor -->
-            <section class="w-full py-16 bg-[#ecf2fa] flex-1">
+            <section class="w-full py-16 bg-[#ecf2fa] flex-1 reveal">
                 <div class="max-w-[1440px] mx-auto px-4 lg:px-8 flex flex-col gap-8">
                     <div class="flex flex-col gap-1">
                         <span class="text-xs text-primary font-extrabold uppercase tracking-wider">03. Impacto y
@@ -396,9 +431,49 @@
     </main>
 
     <footer class="w-full bg-primary-dark text-white border-t border-primary/20">
-        <div class="max-w-[1440px] mx-auto px-4 lg:px-8 py-10">
-            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-xs">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8 py-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="flex flex-col gap-3">
+                    <div class="flex items-center gap-2.5">
+                        <img src="assets/logo.png" alt="Logo PARKUDB" class="w-10 h-10 object-contain" />
+                        <span class="font-extrabold text-lg text-white">PARKUDB</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-xs">
+                        Sistema inteligente de gestión y monitoreo de estacionamiento, con sensores IoT e IA
+                        predictiva, para la Universidad Don Bosco.
+                    </p>
+                </div>
+
+                <div class="flex flex-col gap-2.5">
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-white/60">Navegación</span>
+                    <a href="index.html" class="text-xs text-slate-300 hover:text-white transition-colors">Inicio</a>
+                    <a href="funcionalidades.html"
+                        class="text-xs text-slate-300 hover:text-white transition-colors">Funcionalidades &
+                        Demo</a>
+                    <a href="equipo.html" class="text-xs text-slate-300 hover:text-white transition-colors">Equipo</a>
+                </div>
+
+                <div class="flex flex-col gap-2.5">
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-white/60">Proyecto
+                        Académico</span>
+                    <span class="text-xs text-slate-300">Universidad Don Bosco</span>
+                    <span class="text-xs text-slate-300">Facultad de Ingeniería</span>
+                    <span class="text-xs text-slate-300">Cátedra Integradora</span>
+                </div>
+
+                <div class="flex flex-col gap-2.5">
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-white/60">Stack
+                        Tecnológico</span>
+                    <span class="text-xs text-slate-300">Firebase Firestore · FastAPI</span>
+                    <span class="text-xs text-slate-300">scikit-learn (Random Forest)</span>
+                    <span class="text-xs text-slate-300">Expo / React Native</span>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 mt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-xs">
                 <p>© 2026 Universidad Don Bosco • PARKUDB. Todos los derechos reservados.</p>
+                <span class="bg-white/10 px-2 py-0.5 rounded text-white font-mono text-[11px]">v1.2-parkudb</span>
             </div>
         </div>
     </footer>
@@ -448,6 +523,43 @@
 
             btn.addEventListener('click', consultar);
             consultar(); // resultado inicial al cargar
+        })();
+    </script>
+    <!-- Botón flotante: volver arriba -->
+    <button id="backToTopBtn" aria-label="Volver arriba"
+        class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary hover:bg-primary-hover text-white shadow-lg flex items-center justify-center transition-colors">
+        <span class="material-symbols-outlined text-[22px]">arrow_upward</span>
+    </button>
+
+    <!-- Animaciones al hacer scroll + botón volver arriba -->
+    <script>
+        (function () {
+            const revealEls = document.querySelectorAll('.reveal');
+            if (revealEls.length && 'IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('in-view');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+                revealEls.forEach((el) => observer.observe(el));
+            } else {
+                revealEls.forEach((el) => el.classList.add('in-view'));
+            }
+
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 400) backToTopBtn.classList.add('visible');
+                    else backToTopBtn.classList.remove('visible');
+                }, { passive: true });
+
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
         })();
     </script>
 </body>
